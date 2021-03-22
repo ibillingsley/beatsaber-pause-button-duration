@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "author": "BToersche",
+  "dependsOn": {
+    "BSIPA": "^4.1.6"
+  },
+  "description": "A small BeatSaber plugin providing additional pause button press durations (other than instant and long), like medium and double-press.",
+  "features": [],
+  "gameVersion": "1.13.5",
+  "id": "PauseButtonDuration",
+  "links": {
+    "project-home": "https://github.com/btoersche/beatsaber-pause-button-duration/",
+    "project-source": "https://github.com/btoersche/beatsaber-pause-button-duration/",
+    "donate": "https://ko-fi.com/btoersche"
+  },
+  "name": "PauseButtonDuration",
+  "version": "0.1.0"
+}

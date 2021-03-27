@@ -1,4 +1,14 @@
-﻿using PauseButtonDuration.MenuButtonTriggers;
+﻿/*
+ * This file is part of BeatSaber-PauseButtonDuration.
+ * Copyright (c) 2021 Bart Toersche
+ * 
+ * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
+ * 
+ * You should have received a copy of the MIT License along with
+ * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
+ */
+
+using PauseButtonDuration.MenuButtonTriggers;
 using HarmonyLib;
 using System;
 using System.Runtime.CompilerServices;
@@ -21,64 +31,38 @@ namespace PauseButtonDuration.HarmonyPatches
 
 		public static bool Prefix(GameCoreSceneSetup __instance)
 		{
-			uint pauseButtonMode = Configuration.PluginConfig.Instance.PauseButtonMode;
-			uint requiredPressAmount = Configuration.PluginConfig.Instance.RequiredPressAmount;
-			float requiredPressDuration = Configuration.PluginConfig.Instance.RequiredPressDuration;
+			bool enabled = Configuration.PluginConfig.Instance.Enabled;
+			if (enabled)
+			{
+				int requiredTapAmount = Configuration.PluginConfig.Instance.RequiredTapAmount;
+				float requiredPressDuration = Configuration.PluginConfig.Instance.RequiredPressDuration;
+				float multiTapTimeout = Configuration.PluginConfig.Instance.MultiTapTimeout;
+				bool requiresDualPress = Configuration.PluginConfig.Instance.RequiresDualPress;
+				bool requiresTriggerPress = Configuration.PluginConfig.Instance.RequiresTriggerPress;
 
-			// Fetch a few protected fields through reflection.
-			ScreenCaptureAfterDelay screenCaptureAfterDelayPrefab = (ScreenCaptureAfterDelay)AccessTools.Field(typeof(GameCoreSceneSetup), "_screenCaptureAfterDelayPrefab").GetValue(__instance);
-			MainSettingsModelSO mainSettingsModel = (MainSettingsModelSO)AccessTools.Field(typeof(GameCoreSceneSetup), "_mainSettingsModel").GetValue(__instance);
-			BloomFogSO bloomFog = (BloomFogSO)AccessTools.Field(typeof(GameCoreSceneSetup), "_bloomFog").GetValue(__instance);
+				// Fetch a few protected fields through reflection.
+				ScreenCaptureAfterDelay screenCaptureAfterDelayPrefab = (ScreenCaptureAfterDelay)AccessTools.Field(typeof(GameCoreSceneSetup), "_screenCaptureAfterDelayPrefab").GetValue(__instance);
+				MainSettingsModelSO mainSettingsModel = (MainSettingsModelSO)AccessTools.Field(typeof(GameCoreSceneSetup), "_mainSettingsModel").GetValue(__instance);
+				BloomFogSO bloomFog = (BloomFogSO)AccessTools.Field(typeof(GameCoreSceneSetup), "_bloomFog").GetValue(__instance);
 
-			// Select a menu button trigger according to the mode (MultiPress/Delayed/DualHold).
-			if (pauseButtonMode == 0)
-			{
-				BaseContainer(__instance).Bind<uint>().FromInstance(requiredPressAmount).WhenInjectedInto<MultiTapMenuButtonTrigger>();
-				BaseContainer(__instance).Bind<float>().FromInstance(requiredPressDuration).WhenInjectedInto<MultiTapMenuButtonTrigger>();
-				BaseContainer(__instance).Bind(new Type[]
-				{
-					typeof(ITickable),
-					typeof(IMenuButtonTrigger)
-				}).To<MultiTapMenuButtonTrigger>().AsSingle();
-			}
-			else if (pauseButtonMode == 1)
-			{
-				BaseContainer(__instance).Bind<float>().FromInstance(requiredPressDuration).WhenInjectedInto<DelayedMenuButtonTrigger>();
-				BaseContainer(__instance).Bind(new Type[]
-				{
-				typeof(ITickable),
-				typeof(IMenuButtonTrigger)
-				}).To<DelayedMenuButtonTrigger>().AsSingle();
-			}
-			else if (pauseButtonMode == 2)
-			{
-				BaseContainer(__instance).Bind<float>().FromInstance(requiredPressDuration).WhenInjectedInto<DualPressMenuButtonTrigger>();
-				BaseContainer(__instance).Bind(new Type[]
-				{
-				typeof(ITickable),
-				typeof(IMenuButtonTrigger)
-				}).To<DualPressMenuButtonTrigger>().AsSingle();
-			}
-			else if (pauseButtonMode == 3)
-			{
-				BaseContainer(__instance).Bind<float>().FromInstance(requiredPressDuration).WhenInjectedInto<TriggerAndMenuButtonTrigger>();
-				BaseContainer(__instance).Bind(new Type[]
-				{
-				typeof(ITickable),
-				typeof(IMenuButtonTrigger)
-				}).To<TriggerAndMenuButtonTrigger>().AsSingle();
-			}
+				// Setup the configurable menu button trigger with the configured properties
+				BaseContainer(__instance).Bind<int>().WithId("RequiredTapAmount").FromInstance(requiredTapAmount).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
+				BaseContainer(__instance).Bind<float>().WithId("RequiredPressDuration").FromInstance(requiredPressDuration).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
+				BaseContainer(__instance).Bind<float>().WithId("MultiTapTimeout").FromInstance(multiTapTimeout).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
+				BaseContainer(__instance).Bind<bool>().WithId("RequiresDualPress").FromInstance(requiresDualPress).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
+				BaseContainer(__instance).Bind<bool>().WithId("RequiresTriggerPress").FromInstance(requiresTriggerPress).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
+				BaseContainer(__instance).Bind(new Type[] { typeof(ITickable), typeof(IMenuButtonTrigger) }).To<ConfigurableMenuButtonTrigger>().AsSingle();
 
-			// Remaining initialization which is performed as normal.
-			BaseContainer(__instance).Bind<BloomFogSO>().FromScriptableObject(bloomFog).AsSingle();
-			BaseContainer(__instance).Bind<NoteCutter>().AsSingle();
-			if (mainSettingsModel.createScreenshotDuringTheGame)
-			{
-				BaseContainer(__instance).Bind<ScreenCaptureAfterDelay.InitData>().FromInstance(new ScreenCaptureAfterDelay.InitData(ScreenCaptureCache.ScreenshotType.Game, 5f, 1920, 1080));
-				BaseContainer(__instance).Bind<ScreenCaptureAfterDelay>().FromComponentInNewPrefab(screenCaptureAfterDelayPrefab).AsSingle().NonLazy();
+				// Remaining initialization which is performed as normal.
+				BaseContainer(__instance).Bind<BloomFogSO>().FromScriptableObject(bloomFog).AsSingle();
+				BaseContainer(__instance).Bind<NoteCutter>().AsSingle();
+				if (mainSettingsModel.createScreenshotDuringTheGame)
+				{
+					BaseContainer(__instance).Bind<ScreenCaptureAfterDelay.InitData>().FromInstance(new ScreenCaptureAfterDelay.InitData(ScreenCaptureCache.ScreenshotType.Game, 5f, 1920, 1080));
+					BaseContainer(__instance).Bind<ScreenCaptureAfterDelay>().FromComponentInNewPrefab(screenCaptureAfterDelayPrefab).AsSingle().NonLazy();
+				}
 			}
-
-			return false;
+			return !enabled;
 		}
 	}
 }

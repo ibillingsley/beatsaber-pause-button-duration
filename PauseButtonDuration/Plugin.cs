@@ -1,5 +1,14 @@
-﻿using IPA;
-using IPA.Config;
+﻿/*
+ * This file is part of BeatSaber-PauseButtonDuration.
+ * Copyright (c) 2021 Bart Toersche
+ * 
+ * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
+ * 
+ * You should have received a copy of the MIT License along with
+ * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
+ */
+
+using IPA;
 using IPA.Config.Stores;
 using System;
 using System.Reflection;
@@ -32,9 +41,9 @@ namespace PauseButtonDuration
 
         #region BSIPA Config
         [Init]
-        public void InitWithConfig(Config conf)
+        public void InitWithConfig(IPA.Config.Config config)
         {
-            Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
+            Configuration.PluginConfig.Instance = config.Generated<Configuration.PluginConfig>();
             Plugin.Log?.Debug("Config loaded.");
         }
         #endregion

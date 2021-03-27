@@ -1,12 +1,22 @@
-﻿{
+﻿/*
+ * This file is part of BeatSaber-PauseButtonDuration.
+ * Copyright (c) 2021 Bart Toersche
+ * 
+ * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
+ * 
+ * You should have received a copy of the MIT License along with
+ * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
+ */
+
+{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
   "author": "BToersche",
   "dependsOn": {
     "BSIPA": "^4.1.6"
   },
-  "description": "A small BeatSaber plugin providing additional pause button press durations (other than instant and long), like medium and double-press.",
+  "description": "A small Beat Saber plugin providing additional pause button press durations (other than instant and long), like short and double-tap.",
   "features": [],
-  "gameVersion": "1.13.5",
+  "gameVersion": "1.13.4",
   "id": "PauseButtonDuration",
   "links": {
     "project-home": "https://github.com/btoersche/beatsaber-pause-button-duration/",

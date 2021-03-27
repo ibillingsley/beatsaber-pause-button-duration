@@ -1,12 +1,21 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿/*
+ * This file is part of BeatSaber-PauseButtonDuration.
+ * Copyright (c) 2021 Bart Toersche
+ * 
+ * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
+ * 
+ * You should have received a copy of the MIT License along with
+ * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
+ */
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PauseButtonDuration")]
-[assembly: AssemblyDescription("A small plugin providing additional pause button press durations (other than instant and long), like medium and double-press.")]
+[assembly: AssemblyDescription("A small Beat Saber plugin providing additional pause button press durations (other than instant and long), like short and double-tap.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PauseButtonDuration")]

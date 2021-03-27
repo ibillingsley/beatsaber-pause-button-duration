@@ -1,16 +1,26 @@
-﻿using HarmonyLib;
+﻿/*
+ * This file is part of BeatSaber-PauseButtonDuration.
+ * Copyright (c) 2021 Bart Toersche
+ * 
+ * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
+ * 
+ * You should have received a copy of the MIT License along with
+ * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
+ */
+
+using HarmonyLib;
 using UnityEngine;
 using UnityEngine.XR;
 
 namespace PauseButtonDuration.Controllers
 {
-	class ExtendedVRControllersInputManager
+    class ExtendedVRControllersInputManager
 	{
 		private readonly VRControllersInputManager _inputManager;
 		private readonly IVRPlatformHelper _vrPlatformHelper;
 
 		public ExtendedVRControllersInputManager(VRControllersInputManager inputManager)
-		{
+        {
 			_inputManager = inputManager;
 			_vrPlatformHelper = (IVRPlatformHelper)AccessTools.Field(typeof(VRControllersInputManager), "_vrPlatformHelper").GetValue(inputManager);
 		}

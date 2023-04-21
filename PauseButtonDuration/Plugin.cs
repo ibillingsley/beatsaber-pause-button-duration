@@ -1,9 +1,9 @@
 ﻿/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
- * 
+ *
  * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
- * 
+ *
  * You should have received a copy of the MIT License along with
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
@@ -102,7 +102,7 @@ namespace PauseButtonDuration
             try
             {
                 Plugin.Log?.Debug("Removing Harmony patches.");
-                harmony.UnpatchAll(HarmonyId); // Removes all patches with this HarmonyId
+                harmony.UnpatchSelf(); // Removes all patches with this HarmonyId
             }
             catch (Exception ex)
             {

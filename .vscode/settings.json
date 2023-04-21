@@ -1,0 +1,11 @@
+{
+	"csharp.referencesCodeLens.enabled": false,
+	"files.associations": {
+		"*.bsml": "html"
+	},
+	"files.encoding": "utf8bom",
+	"files.eol": "\r\n",
+	"html.format.wrapAttributes": "preserve",
+	"omnisharp.organizeImportsOnFormat": true,
+	"omnisharp.useEditorFormattingSettings": false
+}

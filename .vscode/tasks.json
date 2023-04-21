@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"command": "dotnet",
+			"type": "shell",
+			"args": ["build", "PauseButtonDuration/PauseButtonDuration.csproj", "-property:Configuration=Release"],
+			"group": "build",
+			"problemMatcher": "$msCompile"
+		}
+	]
+}

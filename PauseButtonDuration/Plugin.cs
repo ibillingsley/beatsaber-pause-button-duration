@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
  *
@@ -8,11 +8,11 @@
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
 
-using IPA;
-using IPA.Config.Stores;
 using System;
 using System.Reflection;
 using UnityEngine;
+using IPA;
+using IPA.Config.Stores;
 using IPALogger = IPA.Logging.Logger;
 
 namespace PauseButtonDuration

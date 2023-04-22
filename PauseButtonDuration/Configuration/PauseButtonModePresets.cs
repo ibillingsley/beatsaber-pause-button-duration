@@ -1,9 +1,9 @@
 ﻿/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
- * 
+ *
  * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
- * 
+ *
  * You should have received a copy of the MIT License along with
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
@@ -46,7 +46,8 @@ namespace PauseButtonDuration
             float multiTapTimeout,
             bool requiresDualPress,
             bool requiresTriggerPress
-        ) {
+        )
+        {
             PauseButtonMode = pauseButtonMode;
             Name = name;
             Description = description;

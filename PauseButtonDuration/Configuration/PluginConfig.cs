@@ -1,16 +1,16 @@
 ﻿/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
- * 
+ *
  * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
- * 
+ *
  * You should have received a copy of the MIT License along with
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
 
-using IPA.Config.Stores;
 using System;
 using System.Runtime.CompilerServices;
+using IPA.Config.Stores;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 namespace PauseButtonDuration.Configuration
@@ -23,19 +23,22 @@ namespace PauseButtonDuration.Configuration
         public virtual bool Enabled { get; set; } = true;
 
         private int _pauseButtonMode = (int)PauseButtonDuration.PauseButtonMode.Instant;
-        public virtual int PauseButtonMode {
+        public virtual int PauseButtonMode
+        {
             get => _pauseButtonMode;
             set => _pauseButtonMode = Enum.IsDefined(typeof(PauseButtonMode), value) ? value : (int)PauseButtonDuration.PauseButtonMode.Instant;
         }
 
         private int _requiredTapAmount = 1;
-        public virtual int RequiredTapAmount {
+        public virtual int RequiredTapAmount
+        {
             get => _requiredTapAmount;
             set => _requiredTapAmount = Math.Max(1, value);
         }
 
         private float _requiredPressDuration = 0.0F;
-        public virtual float RequiredPressDuration {
+        public virtual float RequiredPressDuration
+        {
             get => _requiredPressDuration;
             set => _requiredPressDuration = Math.Max(0.0F, value);
         }

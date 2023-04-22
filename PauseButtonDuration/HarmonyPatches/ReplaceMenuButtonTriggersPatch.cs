@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
  * 
@@ -8,10 +8,10 @@
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
 
-using PauseButtonDuration.MenuButtonTriggers;
-using HarmonyLib;
 using System;
 using System.Runtime.CompilerServices;
+using HarmonyLib;
+using PauseButtonDuration.MenuButtonTriggers;
 using Zenject;
 
 namespace PauseButtonDuration.HarmonyPatches

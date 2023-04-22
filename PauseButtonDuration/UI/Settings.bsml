@@ -1,0 +1,48 @@
+<settings-container>
+    <checkbox-setting
+        text="Enabled"
+        value="enabled" />
+    <dropdown-list-setting
+        text="Preset"
+        value="preset"
+        choices="presets"
+        apply-on-change="true"
+        on-change="onPresetChange" />
+    <increment-setting
+        text="Tap Amount"
+        hover-hint="Number of button presses required"
+        value="requiredTapAmount"
+        increment="1"
+        min="1"
+        max="5"
+        integer-only="true"
+        bind-value="true" />
+    <increment-setting
+        text="Press Duration (s)"
+        hover-hint="Button hold duration required, in seconds"
+        value="requiredPressDuration"
+        increment="0.1"
+        min="0"
+        max="5"
+        integer-only="false"
+        bind-value="true" />
+    <increment-setting
+        text="Multi-Tap Timeout (s)"
+        hover-hint="Amount of time allowed between each button press, in seconds"
+        value="multiTapTimeout"
+        increment="0.1"
+        min="0"
+        max="5"
+        integer-only="false"
+        bind-value="true" />
+    <checkbox-setting
+        text="Dual Press"
+        hover-hint="Hold pause button on both controllers            (-vrmode oculus not supported)"
+        value="requiresDualPress"
+        bind-value="true" />
+    <checkbox-setting
+        text="Trigger Press"
+        hover-hint="Hold pause button and press the trigger"
+        value="requiresTriggerPress"
+        bind-value="true" />
+</settings-container>

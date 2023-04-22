@@ -118,6 +118,10 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="BSML">
+      <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\PluginConfig.cs" />
@@ -125,12 +129,14 @@
     <Compile Include="HarmonyPatches\ReplaceMenuButtonTriggersPatch.cs" />
     <Compile Include="Configuration\PauseButtonModePresets.cs" />
     <Compile Include="MenuButtonTriggers\ConfigurableMenuButtonTrigger.cs" />
+    <Compile Include="UI\SettingsController.cs" />
     <Compile Include="PauseButtonDurationController.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
+    <EmbeddedResource Include="UI\Settings.bsml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />

@@ -12,7 +12,8 @@
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
   "author": "BToersche, ibillingsley",
   "dependsOn": {
-    "BSIPA": "^4.2.2"
+    "BSIPA": "^4.2.2",
+    "BeatSaberMarkupLanguage": "^1.6.4"
   },
   "description": "A small Beat Saber plugin providing additional pause button press durations (other than instant and long), like short and double-tap.",
   "features": [],

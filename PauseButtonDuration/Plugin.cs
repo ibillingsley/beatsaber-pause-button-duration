@@ -10,9 +10,11 @@
 
 using System;
 using System.Reflection;
+using BeatSaberMarkupLanguage.Settings;
 using UnityEngine;
 using IPA;
 using IPA.Config.Stores;
+using PauseButtonDuration.UI;
 using IPALogger = IPA.Logging.Logger;
 
 namespace PauseButtonDuration
@@ -45,6 +47,8 @@ namespace PauseButtonDuration
         {
             Configuration.PluginConfig.Instance = config.Generated<Configuration.PluginConfig>();
             Plugin.Log?.Debug("Config loaded.");
+
+            BSMLSettings.instance.AddSettingsMenu("<size=85%>Pause Button Duration</size>", "PauseButtonDuration.UI.Settings.bsml", SettingsController.instance);
         }
         #endregion
 

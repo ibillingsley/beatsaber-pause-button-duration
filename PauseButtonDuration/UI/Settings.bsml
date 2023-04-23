@@ -4,9 +4,9 @@
         value="enabled" />
     <dropdown-list-setting
         text="Preset"
+        hover-hint="~presetHint"
         value="preset"
         choices="presets"
-        apply-on-change="true"
         on-change="onPresetChange" />
     <increment-setting
         text="Tap Amount"
@@ -17,23 +17,25 @@
         max="5"
         integer-only="true"
         bind-value="true" />
-    <increment-setting
+    <slider-setting
         text="Press Duration (s)"
         hover-hint="Button hold duration required, in seconds"
         value="requiredPressDuration"
-        increment="0.1"
+        increment="0.05"
         min="0"
         max="5"
         integer-only="false"
+        show-buttons="true"
         bind-value="true" />
-    <increment-setting
+    <slider-setting
         text="Multi-Tap Timeout (s)"
         hover-hint="Amount of time allowed between each button press, in seconds"
         value="multiTapTimeout"
-        increment="0.1"
+        increment="0.05"
         min="0"
-        max="5"
+        max="2"
         integer-only="false"
+        show-buttons="true"
         bind-value="true" />
     <checkbox-setting
         text="Dual Press"

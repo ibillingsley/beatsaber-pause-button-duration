@@ -48,7 +48,7 @@ namespace PauseButtonDuration.HarmonyPatches
                 container.Bind<bool>().WithId("RequiresDualPress").FromInstance(requiresDualPress).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
                 container.Bind<bool>().WithId("RequiresTriggerPress").FromInstance(requiresTriggerPress).WhenInjectedInto<ConfigurableMenuButtonTrigger>();
                 container.Unbind(typeof(IMenuButtonTrigger));
-                container.Bind(new Type[] { typeof(ITickable), typeof(IMenuButtonTrigger) }).To<ConfigurableMenuButtonTrigger>().AsSingle();
+                container.Bind(typeof(ITickable), typeof(IMenuButtonTrigger)).To<ConfigurableMenuButtonTrigger>().AsSingle();
             }
         }
     }

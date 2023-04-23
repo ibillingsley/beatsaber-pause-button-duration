@@ -25,16 +25,24 @@ namespace PauseButtonDuration.UI
             set => PluginConfig.Instance.PauseButtonMode = (int)value.PauseButtonMode;
         }
 
+        [UIValue("presetHint")]
+        public virtual string PresetHint
+        {
+            get => Preset.Description;
+        }
+
         [UIAction("onPresetChange")]
         private void OnPresetChange(PauseButtonModePreset value)
         {
+            Preset = value;
+            NotifyPropertyChanged(nameof(PresetHint));
             if (value.PauseButtonMode != PauseButtonMode.Custom)
             {
-                this.RequiredTapAmount = value.RequiredTapAmount;
-                this.RequiredPressDuration = value.RequiredPressDuration;
-                this.MultiTapTimeout = value.MultiTapTimeout;
-                this.RequiresDualPress = value.RequiresDualPress;
-                this.RequiresTriggerPress = value.RequiresTriggerPress;
+                RequiredTapAmount = value.RequiredTapAmount;
+                RequiredPressDuration = value.RequiredPressDuration;
+                MultiTapTimeout = value.MultiTapTimeout;
+                RequiresDualPress = value.RequiresDualPress;
+                RequiresTriggerPress = value.RequiresTriggerPress;
                 NotifyPropertyChanged(nameof(RequiredTapAmount));
                 NotifyPropertyChanged(nameof(RequiredPressDuration));
                 NotifyPropertyChanged(nameof(MultiTapTimeout));

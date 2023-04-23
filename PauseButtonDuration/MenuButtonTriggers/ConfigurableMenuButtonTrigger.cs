@@ -20,10 +20,10 @@ namespace PauseButtonDuration.MenuButtonTriggers
     {
         private class MenuButtonState
         {
-            public int CurrentTapAmount { get; set; } = 0;
-            public float CurrentPressDuration { get; set; } = 0.0F;
-            public float CurrentMultiTapDuration { get; set; } = 0.0F;
-            public bool MenuButtonPressed { get; set; } = false;
+            public int CurrentTapAmount = 0;
+            public float CurrentPressDuration = 0.0F;
+            public float CurrentMultiTapDuration = 0.0F;
+            public bool MenuButtonPressed = false;
         }
 
         public event Action menuButtonTriggeredEvent;

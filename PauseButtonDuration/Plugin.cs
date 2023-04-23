@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
  *
@@ -9,9 +9,7 @@
  */
 
 using System;
-using System.Reflection;
 using BeatSaberMarkupLanguage.Settings;
-using UnityEngine;
 using IPA;
 using IPA.Config.Stores;
 using PauseButtonDuration.UI;
@@ -26,7 +24,6 @@ namespace PauseButtonDuration
         internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
-        internal static PauseButtonDurationController PluginController { get { return PauseButtonDurationController.Instance; } }
 
         [Init]
         /// <summary>
@@ -60,7 +57,6 @@ namespace PauseButtonDuration
         [OnEnable]
         public void OnEnable()
         {
-            new GameObject("PauseButtonDurationController").AddComponent<PauseButtonDurationController>();
             ApplyHarmonyPatches();
         }
 
@@ -72,10 +68,6 @@ namespace PauseButtonDuration
         [OnDisable]
         public void OnDisable()
         {
-            if (PluginController != null)
-            {
-                GameObject.Destroy(PluginController);
-            }
             RemoveHarmonyPatches();
         }
         #endregion
@@ -89,7 +81,7 @@ namespace PauseButtonDuration
             try
             {
                 Plugin.Log?.Debug("Applying Harmony patches.");
-                harmony.PatchAll(Assembly.GetExecutingAssembly());
+                harmony.PatchAll();
             }
             catch (Exception ex)
             {

@@ -1,9 +1,9 @@
-/*
+﻿/*
  * This file is part of BeatSaber-PauseButtonDuration.
  * Copyright (c) 2021 Bart Toersche
- * 
+ *
  * BeatSaber-PauseButtonDuration is licensed under a MIT License (MIT).
- * 
+ *
  * You should have received a copy of the MIT License along with
  * BeatSaber-PauseButtonDuration. If not, see <https://opensource.org/licenses/MIT>.
  */
@@ -43,12 +43,16 @@ namespace PauseButtonDuration.MenuButtonTriggers
         private readonly float _requiredTriggerValue = 0.5F;
         private readonly MenuButtonState _leftMenuButtonState = new MenuButtonState();
         private readonly MenuButtonState _rightMenuButtonState = new MenuButtonState();
+        private ExtendedVRControllersInputManager inputManager = null;
 
         public virtual void Tick()
         {
             // The original input manager is wrapped in this project's input manager implementation.
             // This is required to distinguish between the left and right menu buttons.
-            ExtendedVRControllersInputManager inputManager = new ExtendedVRControllersInputManager(VRControllersInputManager);
+            if (inputManager == null)
+            {
+                inputManager = new ExtendedVRControllersInputManager(VRControllersInputManager);
+            }
             if (RequiresDualPress)
             {
                 bool leftControllerConnected = inputManager.ControllerConnected(XRNode.LeftHand); // Check if a controller is connected and if not, exclude it from the dual press check.

@@ -1,6 +1,8 @@
 # BeatSaber-PauseButtonDuration
 A small Beat Saber plugin providing additional pause button press durations (other than instant and long), like short and double-tap. The current pause options in Beat Saber are either too short resulting in accidental pauses when you'd least want it (`Instant`) or simply take too long to pause (`Long`). If you feel the same, this plugin is for you! Simply select a preset and you are good to go, or alternatively, configure your own pause settings however you prefer. You will never accidentally pause again!
 
+![Screenshot](screenshot.jpg)
+
 ## Users
 ### Usage
 After installing the plugin, you can simply select one of the presets from the settings menu and you are good to go! Never accidentally pause again!

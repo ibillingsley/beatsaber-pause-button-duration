@@ -35,12 +35,12 @@ namespace PauseButtonDuration.MenuButtonTriggers
         [Inject(Id = "RequiredPressDuration")]
         protected float RequiredPressDuration = 1.0F;
         [Inject(Id = "MultiTapTimeout")]
-        protected float MultiTapTimeout = 0.5F; // Amount of time allowed between each button press.
+        protected float MultiTapTimeout = 0.25F; // Amount of time allowed between each button press.
         [Inject(Id = "RequiresDualPress")]
         protected bool RequiresDualPress = false;
         [Inject(Id = "RequiresTriggerPress")]
         protected bool RequiresTriggerPress = false;
-        private readonly float _requiredTriggerValue = 0.5F;
+        private readonly float _requiredTriggerValue = 0.8F;
         private readonly MenuButtonState _leftMenuButtonState = new MenuButtonState();
         private readonly MenuButtonState _rightMenuButtonState = new MenuButtonState();
         private ExtendedVRControllersInputManager inputManager = null;

@@ -63,14 +63,14 @@ namespace PauseButtonDuration
 
     public static class PauseButtonModePresets
     {
-        public static readonly PauseButtonModePreset Custom = new PauseButtonModePreset(PauseButtonMode.Custom, "Custom", "Configure a custom mode to open the menu.", 1, 0.0F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset Instant = new PauseButtonModePreset(PauseButtonMode.Instant, "Instant", "Press pause to immediately open the menu.", 1, 0.0F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset Short = new PauseButtonModePreset(PauseButtonMode.Short, "Short", "Hold pause for a short amount of time (250 ms) to open the menu.", 1, 0.25F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset Medium = new PauseButtonModePreset(PauseButtonMode.Medium, "Medium", "Hold pause for a medium amount of time (500 ms) to open the menu.", 1, 0.5F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset Long = new PauseButtonModePreset(PauseButtonMode.Long, "Long", "Hold pause for a long amount of time (750 ms) to open the menu.", 1, 0.75F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset DoubleTap = new PauseButtonModePreset(PauseButtonMode.DoubleTap, "Double Tap", "Tap pause twice in quick succession to open the menu.", 2, 0.0F, 0.5F, false, false);
-        public static readonly PauseButtonModePreset DualPress = new PauseButtonModePreset(PauseButtonMode.DualPress, "Dual Press", "Hold pause on both controllers to open the menu.", 1, 0.0F, 0.5F, true, false);
-        public static readonly PauseButtonModePreset ButtonAndTrigger = new PauseButtonModePreset(PauseButtonMode.ButtonAndTrigger, "Button+Trigger", "Hold pause and press the trigger to open the menu.", 1, 0.0F, 0.5F, false, true);
+        public static readonly PauseButtonModePreset Custom = new PauseButtonModePreset(PauseButtonMode.Custom, "Custom", "Configure a custom mode to open the menu.", 1, 0.0F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset Instant = new PauseButtonModePreset(PauseButtonMode.Instant, "Instant", "Press pause to immediately open the menu.", 1, 0.0F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset Short = new PauseButtonModePreset(PauseButtonMode.Short, "Short", "Hold pause for a short amount of time (250 ms) to open the menu.", 1, 0.25F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset Medium = new PauseButtonModePreset(PauseButtonMode.Medium, "Medium", "Hold pause for a medium amount of time (500 ms) to open the menu.", 1, 0.5F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset Long = new PauseButtonModePreset(PauseButtonMode.Long, "Long", "Hold pause for a long amount of time (750 ms) to open the menu.", 1, 0.75F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset DoubleTap = new PauseButtonModePreset(PauseButtonMode.DoubleTap, "Double Tap", "Tap pause twice in quick succession to open the menu.", 2, 0.0F, 0.25F, false, false);
+        public static readonly PauseButtonModePreset DualPress = new PauseButtonModePreset(PauseButtonMode.DualPress, "Dual Press", "Hold pause on both controllers to open the menu. (Oculus not supported)", 1, 0.0F, 0.25F, true, false);
+        public static readonly PauseButtonModePreset ButtonAndTrigger = new PauseButtonModePreset(PauseButtonMode.ButtonAndTrigger, "Button+Trigger", "Hold pause and press the trigger to open the menu.", 1, 0.0F, 0.25F, false, true);
 
         public static readonly IList<PauseButtonModePreset> Values = Array.AsReadOnly(new PauseButtonModePreset[] {
             Custom,

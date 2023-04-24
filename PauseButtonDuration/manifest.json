@@ -3,7 +3,7 @@
   "id": "PauseButtonDuration",
   "name": "PauseButtonDuration",
   "author": "BToersche, ibillingsley",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A small Beat Saber plugin providing additional pause button press durations (other than instant and long), like short and double-tap.",
   "gameVersion": "1.29.1",
   "dependsOn": {

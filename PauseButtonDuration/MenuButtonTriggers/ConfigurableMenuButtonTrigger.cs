@@ -96,24 +96,20 @@ namespace PauseButtonDuration.MenuButtonTriggers
             {
                 state.MenuButtonPressed = false;
                 state.CurrentPressDuration = 0.0F;
-            }
 
-            // Reset the amount of presses when too much time has elapsed between button presses.
-            if (state.CurrentTapAmount > 0)
-            {
-                if (state.CurrentMultiTapDuration > MultiTapTimeout)
-                {
-                    state.CurrentTapAmount = 0;
-                    state.CurrentMultiTapDuration = 0.0F;
-                }
-                else if (state.CurrentPressDuration >= RequiredPressDuration)
+                // Reset the amount of presses when too much time has elapsed between button presses.
+                if (state.CurrentTapAmount > 0)
                 {
                     state.CurrentMultiTapDuration += Time.deltaTime;
+                    if (state.CurrentMultiTapDuration > MultiTapTimeout)
+                    {
+                        state.CurrentTapAmount = 0;
+                    }
                 }
             }
 
             // Checks number of presses matches the required. If so, invokes the 'menuButtonTriggeredEvent' action.
-            if (state.CurrentTapAmount == RequiredTapAmount)
+            if (state.CurrentTapAmount >= RequiredTapAmount)
             {
                 state.CurrentTapAmount = 0;
                 state.CurrentPressDuration = 0.0F;

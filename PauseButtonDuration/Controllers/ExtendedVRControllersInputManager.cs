@@ -76,7 +76,7 @@ namespace PauseButtonDuration.Controllers
             {
                 if (_vrPlatformHelper.vrPlatformSDK == VRPlatformSDK.Oculus)
                 {
-                    return (node == XRNode.LeftHand || node == XRNode.RightHand) && Input.GetButton("MenuButtonOculusTouch");
+                    return Input.GetButton("MenuButtonOculusTouch");
                 }
                 if (node == XRNode.LeftHand)
                 {
@@ -91,7 +91,7 @@ namespace PauseButtonDuration.Controllers
             {
                 if (_vrPlatformHelper.currentXRDeviceModel == XRDeviceModel.OculusQuest)
                 {
-                    return (node == XRNode.LeftHand || node == XRNode.RightHand) && Input.GetButton("MenuButtonOculusTouch");
+                    return Input.GetButton("MenuButtonOculusTouch");
                 }
                 if (node == XRNode.LeftHand)
                 {
